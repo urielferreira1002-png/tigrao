@@ -1,0 +1,88 @@
+:root {
+    --orange: #FF6600;
+    --black: #0D0D0D;
+    --grey: #1A1A1A;
+}
+
+body {
+    background: var(--black);
+    color: white;
+    font-family: 'Arial Black', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+header {
+    background: var(--grey);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--orange);
+    position: sticky; top: 0; z-index: 100;
+}
+
+.logo span { color: var(--orange); }
+
+.balance-wrapper {
+    background: #000;
+    padding: 10px 20px;
+    border: 1px solid var(--orange);
+    border-radius: 10px;
+}
+
+/* LOBBY DOS 60 JOGOS */
+#lobby {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 15px;
+    padding: 30px;
+}
+
+.game-card {
+    background: var(--grey);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.game-card:hover { border-color: var(--orange); transform: translateY(-5px); }
+.game-card .icon { font-size: 40px; display: block; margin-bottom: 10px; }
+.game-card h3 { font-size: 11px; margin: 0; color: #aaa; text-transform: uppercase; }
+
+/* MODAL DO JOGO */
+#game-screen {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.95);
+    z-index: 200; justify-content: center; align-items: center;
+}
+
+.game-window {
+    background: var(--grey);
+    width: 90%; max-width: 400px;
+    padding: 30px; border-radius: 20px;
+    border: 4px solid var(--orange);
+    text-align: center; position: relative;
+}
+
+.close-btn { position: absolute; top: 10px; right: 20px; font-size: 30px; cursor: pointer; color: var(--orange); }
+
+.reels { display: flex; justify-content: center; gap: 10px; margin: 20px 0; }
+.reel { background: #000; width: 80px; height: 100px; display: flex; align-items: center; justify-content: center; font-size: 3rem; border-radius: 10px; }
+
+.bet-area { margin: 20px 0; background: #000; padding: 15px; border-radius: 10px; border: 1px solid #333; }
+.bet-area input { background: transparent; border: none; border-bottom: 2px solid var(--orange); color: var(--orange); font-size: 1.5rem; width: 120px; text-align: center; outline: none; }
+
+.btn-spin {
+    background: var(--orange); color: black; border: none;
+    padding: 15px; font-size: 1.2rem; font-weight: bold;
+    border-radius: 50px; cursor: pointer; width: 100%;
+}
+
+.spinning { animation: spinBlur 0.1s infinite; }
+@keyframes spinBlur { 0% { filter: blur(2px); } 100% { filter: blur(5px); } }
